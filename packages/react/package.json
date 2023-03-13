@@ -1,11 +1,36 @@
 {
-  "name": "react",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "name": "@kda/react",
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "./dist/kda-react.umd.js",
+  "module": "./dist/kda-react.es.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/kda-react.es.js",
+      "require": "./dist/kda-react.umd.js"
+    }
   },
-  "author": "",
-  "license": "ISC"
+  "dependencies": {
+    "codejar": "^3.6.0",
+    "copy-to-clipboard": "^3.3.2",
+    "copyfiles": "^2.4.1",
+    "highlight.js": "^11.6.0",
+    "ssr-window": "^4.0.2"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0 || 17.x",
+    "react-dom": "^16.8.0 || 17.x"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prebuild": "yarn install",
+    "build": "rollup -c",
+    "postbuild": "copyfiles ../../.themes/** ./dist/themes --flat"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
 }

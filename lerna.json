@@ -1,5 +1,11 @@
 {
-  "$schema": "node_modules/lerna/schemas/lerna-schema.json",
-  "useWorkspaces": true,
-  "version": "0.0.0"
+  "npmClient": "yarn",
+  "command": {
+    "publish": {
+      "conventionalCommits": true,
+      "ignoreChanges": ["*.md", "stats.html", ".spec.ts", ".stories.ts"]
+    }
+  },
+  "packages": ["packages/*"],
+  "version": "1.0.2"
 }
