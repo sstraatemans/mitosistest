@@ -1,7 +1,5 @@
 import { container } from './button.css';
 
-console.log({ container });
-
 type ButtonProps = {
   children?: any;
 };

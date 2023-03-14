@@ -26,7 +26,6 @@ module.exports = (options) => {
 
   const defaultPresets = ['@babel/preset-env', ['@babel/preset-typescript', tsconfig.compilerOptions]];
 
-  console.log(packageJson.main);
   const inputs = [
     disableCoreCompilation
       ? null
