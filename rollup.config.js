@@ -6,6 +6,7 @@ const dtsPlugin = require('rollup-plugin-dts').default;
 const typescript = require('rollup-plugin-ts');
 const peerDepsExternal = require('rollup-plugin-peer-deps-external');
 const json = require('@rollup/plugin-json');
+const { vanillaExtractPlugin } = require('@vanilla-extract/rollup-plugin');
 
 module.exports = (options) => {
   const {
@@ -25,6 +26,7 @@ module.exports = (options) => {
 
   const defaultPresets = ['@babel/preset-env', ['@babel/preset-typescript', tsconfig.compilerOptions]];
 
+  console.log(packageJson.main);
   const inputs = [
     disableCoreCompilation
       ? null
@@ -34,19 +36,21 @@ module.exports = (options) => {
             {
               file: packageJson.main,
               format: 'cjs',
-              sourcemap: true
+              sourcemap: true,
+              inlineDynamicImports: true
             },
             {
               file: packageJson.module,
               format: 'esm',
-              sourcemap: true
+              sourcemap: true,
+              inlineDynamicImports: true
             }
           ],
           treeshake: true,
-          inlineDynamicImports: true,
           external,
           plugins: [
             ...plugins,
+            new vanillaExtractPlugin(),
 
             resolve.nodeResolve({ extensions: ['.js', '.ts', '.tsx'] }),
             json(),

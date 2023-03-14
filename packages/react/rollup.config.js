@@ -6,6 +6,6 @@ module.exports = config({
   babelPresets: ['@babel/preset-react'],
   compilerOptions: {
     jsx: 'react',
-    jsxImportSource: null,
-  },
+    jsxImportSource: null
+  }
 });

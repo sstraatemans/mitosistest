@@ -19,6 +19,8 @@
     "release": "lerna publish from-package --force-publish"
   },
   "dependencies": {
+    "@vanilla-extract/css": "^1.10.0",
+    "@vanilla-extract/webpack-plugin": "^2.2.0",
     "codejar": "^3.6.0",
     "copy-to-clipboard": "^3.3.2",
     "copyfiles": "^2.4.1",
@@ -56,6 +58,7 @@
     "@types/react": "^18.0.25",
     "@typescript-eslint/eslint-plugin": "^5.42.1",
     "@typescript-eslint/parser": "^5.42.1",
+    "@vanilla-extract/rollup-plugin": "^1.2.0",
     "@vue/babel-preset-app": "^5.0.8",
     "autoprefixer": "^10.4.13",
     "chokidar-cli": "^3.0.0",
